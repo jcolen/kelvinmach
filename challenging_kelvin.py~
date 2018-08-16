@@ -28,14 +28,13 @@ def calculate_wake(l, R, d, opt=0):
 	#Generate windowing function to handle emphasizing nearby points in FFT
 	#Using blackman window
 	#w = np.blackman(n)
-	#w = np.hamming(n)
-	#W1 = np.reshape(np.repeat(w, n), [n, n])
-	#W2 = np.transpose(W1)
-	#W = W1 * W2
+	w = np.hamming(n)
+	W1 = np.reshape(np.repeat(w, n), [n, n])
+	W2 = np.transpose(W1)
+	W = W1 * W2
 	
 	#Have to rotate the grid because dft starts at zero not negative infinity
-	#phi_grid = np.roll(phi_induced * W, -m, axis=0)
-	phi_grid = np.roll(phi_induced, -m, axis=0)
+	phi_grid = np.roll(phi_induced * W, -m, axis=0)
 	phi_grid = np.roll(phi_grid, -m, axis=1)
 	
 	#Calculate dft
