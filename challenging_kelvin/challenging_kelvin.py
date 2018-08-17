@@ -14,7 +14,7 @@ def phi_in2(kx, ky, l):
     
 def calculate_wake(l, R, d, opt=0):
     #Generate grid of points for fast fourier transform
-    k = np.arange(-R+d, R+d, d)
+    k = np.arange(-R, R+d, d)
     n = len(k)
 
     m = (n - 1) / 2
