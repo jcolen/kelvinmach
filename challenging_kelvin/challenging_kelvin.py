@@ -19,6 +19,7 @@ def calculate_wake(l, R, d, opt=0):
 
     m = (n - 1) / 2
     x = pi / (d * m) * np.arange(-m, m+1, 1)
+    #x = 1 / (d * m) * np.arange(-m, m+1, 1)
     
     #Calculate the function values at each point in the grid
     if opt == 0:
