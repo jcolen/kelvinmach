@@ -19,7 +19,6 @@ def calculate_wake(l, R, d, opt=0):
 
     m = (n - 1) / 2
     x = pi / (d * m) * np.arange(-m, m+1, 1)
-    #x = 1 / (d * m) * np.arange(-m, m+1, 1)
     
     #Calculate the function values at each point in the grid
     if opt == 0:
@@ -81,5 +80,5 @@ if __name__ == '__main__':
             fig = plt.figure()
             plt.imshow(np.real(phi))
             print(filename)
-            fig.savefig('C:\Users\Jonathan\Documents\School\Kolomeisky\\challenging_kelvin\%s.png' % filename)
+            #fig.savefig('C:\Users\Jonathan\Documents\School\Kolomeisky\\challenging_kelvin\%s.png' % filename)
             plt.close(fig)
