@@ -26,16 +26,7 @@ def calculate_wake(l, R, d, opt=0):
     else:
         phi_induced = phi_in2(k[:, None], k[None, :], l)
     
-    #Generate windowing function to handle emphasizing nearby points in FFT
-    #Using blackman window
-    #w = np.blackman(n)
-    #w = np.hamming(n)
-    #W1 = np.reshape(np.repeat(w, n), [n, n])
-    #W2 = np.transpose(W1)
-    #W = W1 * W2
-    
     #Have to rotate the grid because dft starts at zero not negative infinity
-    #phi_grid = np.roll(phi_induced * W, -m, axis=0)
     phi_grid = np.roll(phi_induced, -m, axis=0)
     phi_grid = np.roll(phi_grid, -m, axis=1)
     
@@ -60,7 +51,6 @@ if __name__ == '__main__':
         xs = x[-1]
         fig = plt.figure()
         plt.imshow(np.real(phi), extent=[-xs, xs, -xs, xs])
-        #x = np.arange(-R, 0+d, d)
         plt.plot(x, np.sqrt(x**2.0 / 8.), color='blue')
         plt.plot(x, -np.sqrt(x**2.0 / 8.), color='blue')
         plt.xlim([-xs, 0])

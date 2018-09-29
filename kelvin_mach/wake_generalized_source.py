@@ -60,7 +60,7 @@ def generate_wake_grid(M, g, s, l, R, d, next, a=2.0):
 	return fPhi
 
 def main():
-	M = 4.0
+	M = 1.0 #4.0 
 	l = 0.09
 	R = 128
 	d = 0.125
@@ -70,7 +70,7 @@ def main():
 	
 	#phi = generate_wake_grid(M, 1.0, 1.0, l, R, d, charge_away_plane)
 	#filename = 'wake_M%f_lambda%f_%s' % (M, l, 'charge_away_plane')
-	phi = generate_wake_grid(M, 1.0, 0.0, l, R, d, gaussian_in_plane, a=0.01)
+	phi = generate_wake_grid(M, 1.0, 0.0, l, R, d, gaussian_in_plane)
 #filename = 'wake_M%f_lambda%f_%s' % (M, l, 'gaussian_in_plane')
 	#phi = generate_wake_grid(M, 1.0, 1.0, l, R, d, charged_rectangle)
 	#filename = 'wake_M%f_lambda%f_%s' % (M, l, 'charged_rectangle')
@@ -102,6 +102,7 @@ def main():
 	fig = plt.figure()
 	plt.imshow(np.real(phi))
 	#fig.savefig('C:\Users\Jonathan\Documents\School\Kolomeisky\\phi_ext_patterns\%s.png' % filename)
+	plt.colorbar()
 	plt.show()
 	
 	
