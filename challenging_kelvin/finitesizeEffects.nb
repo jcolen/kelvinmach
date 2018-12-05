@@ -1,0 +1,215 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7988,        207]
+NotebookOptionsPosition[      7387,        189]
+NotebookOutlinePosition[      7720,        204]
+CellTagsIndexPosition[      7677,        201]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+This notebook generates an interactive graphic showing the constructive and \
+destructive inteference points for the finite length pressure source.\
+\>", "Text",
+ CellChangeTimes->{{3.750718635327153*^9, 
+  3.750718703209971*^9}},ExpressionUUID->"664e2674-2394-4afa-bc8e-\
+e997a8f76aa1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"f", "[", "k_", "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{"Sqrt", "[", 
+    RowBox[{"k", "-", "1"}], "]"}], "/", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", "k"}], "-", "1"}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kno", "[", 
+   RowBox[{"n_", ",", " ", "F_"}], "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{"Pi", "^", "2"}], " ", "*", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", "n"}], " ", "+", " ", "1"}], ")"}], "^", "2"}], " ", 
+   RowBox[{"F", "^", "4"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kne", "[", 
+   RowBox[{"n_", ",", " ", "F_"}], "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{"Pi", "^", "2"}], " ", "*", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"2", "n"}], ")"}], "^", "2"}], " ", 
+   RowBox[{"F", "^", "4"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"knos", "[", 
+   RowBox[{"n0_", ",", " ", "nf_", ",", " ", "F_"}], "]"}], ":=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"kno", "[", 
+     RowBox[{"n", ",", " ", "F"}], "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", " ", "n0", ",", " ", "nf"}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"knes", "[", 
+   RowBox[{"n0_", ",", "nf_", ",", " ", "F_"}], "]"}], ":=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"kne", "[", 
+     RowBox[{"n", ",", " ", "F"}], "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", " ", "n0", ",", "nf"}], "}"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.750716876577198*^9, 3.7507169281196117`*^9}, {
+  3.7507170224184237`*^9, 3.75071702253554*^9}, {3.750717954743967*^9, 
+  3.750717986698708*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"677b93bb-09e3-4118-a81c-43920a8a1da7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"LogLinearPlot", "[", 
+      RowBox[{
+       RowBox[{"f", "[", "k", "]"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", " ", "1", ",", " ", "100"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ListLogLinearPlot", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"knos", "[", 
+           RowBox[{"0", ",", " ", "3", ",", " ", "F"}], "]"}], ",", " ", 
+          RowBox[{"f", "[", 
+           RowBox[{"knos", "[", 
+            RowBox[{"0", ",", " ", "3", ",", " ", "F"}], "]"}], "]"}]}], 
+         "}"}], "]"}], ",", " ", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"{", "Black", "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ListLogLinearPlot", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"knes", "[", 
+           RowBox[{"1", ",", " ", "3", ",", " ", "F"}], "]"}], ",", " ", 
+          RowBox[{"f", "[", 
+           RowBox[{"knes", "[", 
+            RowBox[{"1", ",", " ", "3", ",", " ", "F"}], "]"}], "]"}]}], 
+         "}"}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"{", "Red", "}"}]}]}], "]"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"F", ",", " ", "0.2", ",", " ", "0.7"}], "}"}]}], "]"}]], "Input",\
+
+ CellChangeTimes->{{3.750717117707329*^9, 3.7507172466738443`*^9}, {
+   3.7507172787914*^9, 3.7507173870712967`*^9}, {3.750717468857744*^9, 
+   3.75071747005577*^9}, {3.750717947671817*^9, 3.750717947978054*^9}, {
+   3.7507179904614973`*^9, 3.7507180538255587`*^9}, {3.750718110871917*^9, 
+   3.750718113569949*^9}, 3.750718672461218*^9, {3.750720014830196*^9, 
+   3.750720036060523*^9}, {3.7508753474496937`*^9, 3.750875349059763*^9}, {
+   3.7508753940321083`*^9, 3.750875395248384*^9}, {3.751736173876927*^9, 
+   3.751736182748914*^9}, {3.7517363680174437`*^9, 3.751736369738639*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"32f04419-f510-4f7d-b33b-df44dd2f3723"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`F$$ = 0.624, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`F$$], 0.2, 0.7}}, Typeset`size$$ = {
+    360., {106., 113.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`F$2677$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`F$$ = 0.2}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`F$$, $CellContext`F$2677$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Show[
+        LogLinearPlot[
+         $CellContext`f[$CellContext`k], {$CellContext`k, 1, 100}], 
+        ListLogLinearPlot[
+         Transpose[{
+           $CellContext`knos[0, 3, $CellContext`F$$], 
+           $CellContext`f[
+            $CellContext`knos[0, 3, $CellContext`F$$]]}], 
+         PlotStyle -> {Black}], 
+        ListLogLinearPlot[
+         Transpose[{
+           $CellContext`knes[1, 3, $CellContext`F$$], 
+           $CellContext`f[
+            $CellContext`knes[1, 3, $CellContext`F$$]]}], 
+         PlotStyle -> {Red}]], 
+      "Specifications" :> {{$CellContext`F$$, 0.2, 0.7}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{407., {162., 169.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.750718054847445*^9, 3.750718061648417*^9}, 
+   3.750718113996722*^9, 3.7507182707295027`*^9, {3.7507200188651543`*^9, 
+   3.750720036553227*^9}, 3.750720601932069*^9, {3.750875344380659*^9, 
+   3.750875354011415*^9}, 3.7508753959734163`*^9, 3.750877399713763*^9, 
+   3.751736102103024*^9, {3.751736183556588*^9, 3.7517361859335947`*^9}, {
+   3.751736383180529*^9, 3.7517363855319138`*^9}, 3.752177400880002*^9, 
+   3.752178266586027*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"49b3724c-c2ef-4784-bc51-bb835d4082b5"]
+}, Open  ]]
+},
+WindowSize->{808, 753},
+WindowMargins->{{Automatic, 79}, {3, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 297, 6, 58, "Text",ExpressionUUID->"664e2674-2394-4afa-bc8e-e997a8f76aa1"],
+Cell[858, 28, 1736, 50, 124, "Input",ExpressionUUID->"677b93bb-09e3-4118-a81c-43920a8a1da7"],
+Cell[CellGroupData[{
+Cell[2619, 82, 2176, 49, 170, "Input",ExpressionUUID->"32f04419-f510-4f7d-b33b-df44dd2f3723"],
+Cell[4798, 133, 2573, 53, 383, "Output",ExpressionUUID->"49b3724c-c2ef-4784-bc51-bb835d4082b5"]
+}, Open  ]]
+}
+]
+*)
+
