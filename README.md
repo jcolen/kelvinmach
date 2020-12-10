@@ -1,5 +1,5 @@
 # kelvinmach
-Scripts for Kelvin-Mach wake patterns
+Official repository for the paper **Kelvin-Froude wake patterns of a traveling pressure disturbance** (<https://arxiv.org/abs/1902.01844>).
 
 The programs for the challenging kelvin research problem are located in the challenging\_kelvin folder, along with some pictures in the pics/ subfolder.
 
